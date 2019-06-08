@@ -1,16 +1,24 @@
 {
-  "name": "promises-pipes",
-  "version": "0.0.1",
-  "description": "Promises chain execution tools",
-  "main": "index.js",
-  "scripts": {
-    "test": "nyc mocha"
-  },
-  "author": "Mohamed Gundour<mohamedgundour@gmail.com>",
-  "license": "ISC",
-  "devDependencies": {
-    "chai": "4.2.0",
-    "mocha": "6.1.4",
-    "nyc": "14.1.1"
-  }
+    "name": "promises-pipes",
+    "version": "0.0.2",
+    "keywords": ["promise", "async", "pipes", "control", "flow", "iteration", "loop"],
+    "description": "Promises chain execution tools",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gundour/promises-pipes"
+    },
+    "main": "index.js",
+    "scripts": {
+        "test": "nyc mocha"
+    },
+    "author": {
+        "name": "Mohamed Gundour",
+        "email": "mohamedgundour@gmail.com"
+    },
+    "license": "ISC",
+    "devDependencies": {
+        "chai": "4.2.0",
+        "mocha": "6.1.4",
+        "nyc": "14.1.1"
+    }
 }
