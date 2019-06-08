@@ -1,0 +1,16 @@
+{
+  "name": "promises-pipes",
+  "version": "0.0.1",
+  "description": "Promises chain execution tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha"
+  },
+  "author": "Mohamed Gundour<mohamedgundour@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "4.2.0",
+    "mocha": "6.1.4",
+    "nyc": "14.1.1"
+  }
+}
