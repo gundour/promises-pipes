@@ -65,4 +65,25 @@ parallel([tasks])
 ### limitedParallel
 Excute parallel tasks but limit the number of running tasks.
 ```
-limitedParallel([tasks], limit)
+limitedParallel([tasks], limit, stopFunction)
+```
+
+
+#### stopFunction
+Can be added to limitedParallel function, makes limitedParallel reject with error
+that is instance of StopPipe class and has the stopResponse which is the first result that
+met the stopFunction condition.
+```
+const {limitedParallel, StopPipe} = require('promises-pipes')
+
+function stopFunction(result) {
+	return (condition)
+}
+
+limitedParallel([tasks], limit, stopFunction)
+	.then(result)
+	.catch(StopPipe => {
+		// StopPipe instance
+	})
+
+```
