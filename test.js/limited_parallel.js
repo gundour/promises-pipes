@@ -1,5 +1,5 @@
 var expect = require('chai').expect
-const {limitedParallel} = require('..')
+const {limitedParallel, StopPipe} = require('..')
 
 let promiseFunction = (i) => {
     return new Promise((resolve, reject) => {
@@ -68,6 +68,41 @@ describe('limitedParallel', function () {
             .catch(done)
     })
 
+    it('should reject promise with stop condition with default limit', done => {
+        let testingFunctions = []
+        for (let i = 0; i < 10; i++) {
+            testingFunctions.push([promiseFunction, i])
+        }
+
+        function stopFunction(result) {
+            return result > 7
+        }
+
+        limitedParallel(testingFunctions, stopFunction)
+            .then(done)
+            .catch(err => {
+                expect(err instanceof StopPipe).to.equal(true)
+                done()
+            })
+    })
+
+    it('should reject promise with stop condition with limit', done => {
+        let testingFunctions = []
+        for (let i = 0; i < 10; i++) {
+            testingFunctions.push([promiseFunction, i])
+        }
+
+        function stopFunction(result) {
+            return result > 7
+        }
+
+        limitedParallel(testingFunctions, 4, stopFunction)
+            .then(done)
+            .catch(err => {
+                expect(err instanceof StopPipe).to.equal(true)
+                done()
+            })
+    })
 
     it('should reject promise with error', done => {
         let testingFunctions = []
